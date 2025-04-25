@@ -1,7 +1,42 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    // 基础配置
+    "target": "ESNext",          // 编译目标版本（Vue 3 需要 ESNext）
+    "module": "ESNext",          // 模块系统
+    "moduleResolution": "Node",  // 模块解析方式
+    "strict": true,              // 启用严格类型检查
+    "jsx": "preserve",           // 保留 JSX 语法（Vue 3 使用 .vue 文件）
+    "esModuleInterop": true,     // 允许 CommonJS/ES Modules 互操作
+    "skipLibCheck": true,        // 跳过库文件的类型检查（提升编译速度）
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+
+    // 路径别名配置（需配合 vite.config.ts 或 webpack 配置）
+    "baseUrl": ".",              // 基础路径
+    "paths": {
+      "@/*": ["src/*"]           // @ 指向 src 目录
+    },
+
+    // 类型声明
+    "types": ["vite/client"],    // 添加 Vite 客户端类型
+
+    // 输出配置
+    "outDir": "./dist",          // 输出目录
+    "declaration": false,        // 不生成声明文件（生产环境可设为 true）
+    "declarationMap": false,     // 不生成声明映射文件
+
+    // 实验性功能
+    "experimentalDecorators": true, // 启用装饰器（如需要）
+    "emitDecoratorMetadata": true   // 发射装饰器元数据（如需要）
+  },
+  "include": [
+    "src/**/*.ts",              // 包含所有 .ts 文件
+    "src/**/*.d.ts",            // 包含类型声明文件
+    "src/**/*.tsx",             // 包含 .tsx 文件（如果使用 JSX）
+    "src/**/*.vue",             // 必须包含 .vue 文件（Vue 3 需要）
+    "tests/**/*.ts"             // 测试文件（可选）
+  ],
+  "exclude": [
+    "node_modules",             // 排除 node_modules
+    "dist"                      // 排除构建输出目录
   ]
 }
