@@ -6,19 +6,18 @@ import Layout from '@/components/Layout.vue' // 确保路径正确
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Layout, // 使用 Layout 组件作为根组件
+    name: '工作组件',
     children: [
-    //   {
-    //     path: '',
-    //     name: 'HomeView',
-    //     component: () => import('@/views/Home.vue'), // 动态导入，按需加载
-    //   },
-    //   {
-    //     path: 'about',
-    //     name: 'About',
-    //     component: () => import('@/views/About.vue'), // 动态导入，按需加载
-    //   },
+      {
+        path: '/',
+        name: '收运检查单维护',
+        component: () => import('@/components/syjcdwh/syjcdwh.vue'), // 动态导入，按需加载
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () => import('@/components/Layout.vue'), // 动态导入，按需加载
+      },
     ],
   },
   // 其他路由...

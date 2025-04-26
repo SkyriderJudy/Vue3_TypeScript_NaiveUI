@@ -13,7 +13,8 @@
     // 路径别名配置（需配合 vite.config.ts 或 webpack 配置）
     "baseUrl": ".",              // 基础路径
     "paths": {
-      "@/*": ["src/*"]           // @ 指向 src 目录
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"]           // @ 指向 src 目录
     },
 
     // 类型声明

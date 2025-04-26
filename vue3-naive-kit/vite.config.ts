@@ -4,6 +4,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 // vite.config.ts
 import { defineConfig } from 'vite'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,5 +27,11 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()],
       dirs: ['src/components'], // 自动扫描 components 目录
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components') // 自定义别名
+    }
+  }
 })

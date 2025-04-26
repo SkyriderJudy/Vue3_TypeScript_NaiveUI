@@ -1,9 +1,14 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-body {
-  width: 100%;
-  max-height: 100vh;
+html, body {
+  width: 100%;  /* 默认 100%，但可以改为固定值 */
+  margin: 0;    /* 去掉默认边距 */
+  padding: 0;   /* 去掉默认内边距 */
+  height: 100%;
   background-color: #eee;
+}
+
+#app {
+  height: 100%;
+  min-height: 100vh; /* 双保险 */
+  display: flex;
+  flex-direction: column;
 }
