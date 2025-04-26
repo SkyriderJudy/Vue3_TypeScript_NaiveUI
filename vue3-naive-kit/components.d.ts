@@ -11,6 +11,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Layout: typeof import('./src/components/Layout.vue')['default']
     Menu: typeof import('./src/components/menu/Menu.vue')['default']
+    NDivider: typeof import('naive-ui')['NDivider']
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
