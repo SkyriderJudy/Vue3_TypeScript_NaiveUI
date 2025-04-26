@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/',
         name: '收运检查单维护',
-        component: () => import('@/components/syjcdwh/syjcdwh.vue'), // 动态导入，按需加载
+        component: () => import('@/components/syjcdwh/useTreeAndTable.vue'), // 动态导入，按需加载
       },
       {
         path: 'about',
