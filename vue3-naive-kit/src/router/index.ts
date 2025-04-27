@@ -14,9 +14,9 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/components/syjcdwh/useTreeAndTable.vue'), // 动态导入，按需加载
       },
       {
-        path: 'about',
-        name: 'About',
-        component: () => import('@/components/Layout.vue'), // 动态导入，按需加载
+        path: 'modal',
+        name: '模态框',
+        component: () => import('@/components/modal/useModalHook.vue'), // 动态导入，按需加载
       },
     ],
   },

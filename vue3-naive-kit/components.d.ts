@@ -22,5 +22,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Syjcdwh: typeof import('./src/components/syjcdwh/syjcdwh.vue')['default']
+    UseModalHook: typeof import('./src/components/modal/useModalHook.vue')['default']
+    UseTreeAndTable: typeof import('./src/components/syjcdwh/useTreeAndTable.vue')['default']
   }
 }

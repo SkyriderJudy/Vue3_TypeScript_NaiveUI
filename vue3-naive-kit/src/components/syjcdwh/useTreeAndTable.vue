@@ -2,6 +2,13 @@
 import { ref, h } from 'vue';
 import { itIT, NButton, NDataTable, NSpace, NTag, NTree } from 'naive-ui';
 import type { DataTableColumns, TreeOption } from 'naive-ui'
+import useModalHook from '../modal/useModalHook.vue';
+
+const useModalHookComponents = ref<typeof useModalHook>()
+
+const openModal = () => {
+
+}
 
 // 树形数据
 const treeData = ref<TreeOption[]>([
@@ -47,53 +54,53 @@ const treeData = ref<TreeOption[]>([
   }
 ])
 
-const columns: DataTableColumns<UserData> = [
-  {
-    title: 'ID',
-    key: 'id',
-    sorter: true
-  },
-  {
-    title: '姓名',
-    key: 'name',
-    render: (row) => h('span', { style: { color: 'var(--primary-color)' } }, row.name)
-  },
-  {
-    title: '年龄',
-    key: 'age',
-    sorter: (row1, row2) => row1.age - row2.age
-  },
-  {
-    title: '性别',
-    key: 'gender',
-    filterOptions: [
-      { label: '男', value: 'male' },
-      { label: '女', value: 'female' }
-    ],
-    filter: (value, row) => row.gender === value
-  },
-  {
-    title: '状态',
-    key: 'status',
-    render: (row) => h(
-      NTag,
-      { type: row.status === 'active' ? 'success' : 'error' },
-      { default: () => row.status === 'active' ? '活跃' : '禁用' }
-    )
-  },
-  {
-    title: '操作',
-    key: 'actions',
-    render: (row) => h(
-      NButton,
-      {
-        size: 'small',
-        onClick: () => handleAction(row)
-      },
-      { default: () => '编辑' }
-    )
-  }
-]
+// const columns: DataTableColumns<UserData> = [
+//   {
+//     title: 'ID',
+//     key: 'id',
+//     sorter: true
+//   },
+//   {
+//     title: '姓名',
+//     key: 'name',
+//     render: (row) => h('span', { style: { color: 'var(--primary-color)' } }, row.name)
+//   },
+//   {
+//     title: '年龄',
+//     key: 'age',
+//     sorter: (row1, row2) => row1.age - row2.age
+//   },
+//   {
+//     title: '性别',
+//     key: 'gender',
+//     filterOptions: [
+//       { label: '男', value: 'male' },
+//       { label: '女', value: 'female' }
+//     ],
+//     filter: (value, row) => row.gender === value
+//   },
+//   {
+//     title: '状态',
+//     key: 'status',
+//     render: (row) => h(
+//       NTag,
+//       { type: row.status === 'active' ? 'success' : 'error' },
+//       { default: () => row.status === 'active' ? '活跃' : '禁用' }
+//     )
+//   },
+//   {
+//     title: '操作',
+//     key: 'actions',
+//     render: (row) => h(
+//       NButton,
+//       {
+//         size: 'small',
+//         onClick: () => handleAction(row)
+//       },
+//       { default: () => '编辑' }
+//     )
+//   }
+// ]
 
 
 // 节点属性，用于处理整行悬停
@@ -165,15 +172,19 @@ const renderSuffix = ({ option }: { option: TreeOption }) => {
             
         </div>
         <div class="right">
-            <NDataTable 
+          <div>
+            <NButton type="primary" @click="openModal">打开模态框</NButton>
+          </div>
+            <!-- <NDataTable 
                 :columns="columns"
                 :data="data"
                 :pagination="pagination"
                 :loading="loading"
                 @update:sorter="handleSorterChange"
                 @update:filters="handleFiltersChange"
-            />
+            /> -->
         </div>
+        <useModalHook ref="useModalHookComponents"></useModalHook>
     </div>
 </template>
 
